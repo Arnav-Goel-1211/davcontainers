@@ -258,21 +258,34 @@ footer {
 
   .menu-toggle {
     display: block;
+    z-index: 1001;
+    position: relative;
   }
 
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
-    gap: 15px;
-    padding-top: 20px;
-    margin-top: 10px;
-    border-top: 1px solid var(--gray-border);
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    border: none;
   }
 
   .nav-links.active {
-    display: flex;
+    opacity: 1;
+    pointer-events: all;
   }
 
   /* Hamburger Animation */
@@ -287,7 +300,7 @@ footer {
   }
 
   .nav-links a {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     display: block;
     padding: 10px 0;
   }
