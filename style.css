@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --primary-red: #e61c38;
   --dark-red: #ba142b;
-  --accent-green: #009e49;
-  --light-bg: #fcfcfd;
-  --dark-text: #1e2429;
+  --accent-green: #00b359;
+  --light-bg: #f0f4f8;
+  --dark-text: #0a192f;
   --light-text: #f4f6f8;
   --gray-border: #e8eaec;
-  --font-family: 'Outfit', system-ui, sans-serif;
+  --font-family: 'Inter', system-ui, sans-serif;
   --transition-speed: 0.4s;
   --smooth-bezier: cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -32,9 +32,14 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--dark-text);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 900;
 }
 
 a {
@@ -154,9 +159,9 @@ header {
 
 /* Footer */
 footer {
-  background-color: #1a1a1a;
+  background-color: var(--dark-text); /* Deep Industrial Navy */
   color: var(--light-text);
-  padding: 60px 0 20px;
+  padding: 80px 0 30px;
 }
 
 .footer-content {
@@ -219,6 +224,11 @@ footer {
 .services .fade-in:hover, .product-card:hover, .feature-card:hover {
   transform: translateY(-8px) !important;
   box-shadow: var(--shadow-hover) !important;
+}
+
+.core-value-card:hover {
+  transform: translateY(-10px) !important;
+  border-bottom: 4px solid var(--primary-red) !important;
 }
 
 /* Mobile Menu Toggle */
