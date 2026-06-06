@@ -22,15 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set active class on navigation links based on current path
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinksList = document.querySelectorAll('.nav-links a');
   
-  navLinks.forEach(link => {
+  navLinksList.forEach(link => {
     // Check if link href matches the end of currentPath
     const linkPath = new URL(link.href).pathname;
     if (currentPath === linkPath || (currentPath === '/' && linkPath === '/index.html')) {
       link.classList.add('active');
     }
   });
+
+  // Mobile Menu Toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+  }
 
   // Contact Form Handling
   const contactForm = document.getElementById('contactForm');
