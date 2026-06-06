@@ -16,12 +16,17 @@ export default async function handler(req, res) {
 
     const targetEmail = process.env.CONTACT_EMAIL || 'test@example.com';
 
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'Contact Form <onboarding@resend.dev>',
       to: [targetEmail],
       subject: `New Inquiry from ${name} - ${product}`,
       text: `Name: ${name}\nPhone: ${phone}\nProduct Interest: ${product}\n\nMessage:\n${message}`,
     });
+
+    if (error) {
+      console.error('Resend API Error:', error);
+      return res.status(400).json({ success: false, message: error.message });
+    }
 
     return res.status(200).json({ success: true, data });
   } catch (error) {
