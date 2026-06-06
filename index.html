@@ -1,13 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>davcontainers</title>
+    <meta name="description" content="DAV Containers Pvt Ltd - Advanced Packaging Solutions. Manufacturer of high-quality corrugated boxes and fruit cartons based in Kurukshetra." />
+    <title>Home | DAV Containers Pvt Ltd</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header>
+      <div class="nav-container">
+        <a href="/index.html" class="logo-wrapper">
+          <img src="/logo.svg" alt="DAV Containers Logo" />
+          <span class="logo-text">DAV Containers</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/why-us.html">Why Choose Us</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" style="background: linear-gradient(135deg, var(--light-bg) 0%, #e0e0e0 100%); min-height: 80vh; display: flex; align-items: center;">
+        <div class="container fade-in">
+          <h1 style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; line-height: 1.2;">Advanced Packaging Solutions<br><span style="color: var(--dark-text);">for Modern Industries</span></h1>
+          <p style="font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; color: #555;">Established in 2008, D.A.V. Containers Pvt. Ltd. is a premier manufacturer of high-quality corrugated boxes and fruit cartons, delivering durability and brand excellence.</p>
+          <div style="display: flex; gap: 20px;">
+            <a href="/products.html" class="btn">Explore Products</a>
+            <a href="/contact.html" class="btn btn-secondary">Request a Quote</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="services section">
+        <div class="container">
+          <h2 class="fade-in" style="text-align: center; font-size: 2.5rem; margin-bottom: 60px;">What We Offer</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div class="fade-in" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+              <h3 style="color: var(--primary-red); font-size: 1.5rem;">Corrugated Boxes</h3>
+              <p>Robust, durable corrugated fibre board containers tailored for various industrial and commercial needs.</p>
+            </div>
+            <div class="fade-in" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+              <h3 style="color: var(--primary-red); font-size: 1.5rem;">Fruit Cartons</h3>
+              <p>Specialized packaging for Mangoes, Apples, Bananas, ensuring safe transit and extended shelf life.</p>
+            </div>
+            <div class="fade-in" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+              <h3 style="color: var(--primary-red); font-size: 1.5rem;">Custom Printing</h3>
+              <p>High-quality, vibrant custom printing to enhance your brand visibility and customer retention.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4 style="color: var(--primary-red);">DAV Containers Pvt. Ltd.</h4>
+            <p>Advanced semi-automatic manufacturing unit providing state-of-st-the-art packaging solutions since 2008.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/about.html">About Us</a></li>
+              <li><a href="/products.html">Products</a></li>
+              <li><a href="/why-us.html">Why Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul>
+              <li>Gharoula Road, Ladwa</li>
+              <li>Kurukshetra, Haryana, 136132</li>
+              <li>India</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 D.A.V. Containers Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

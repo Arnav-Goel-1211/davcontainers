@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | DAV Containers Pvt Ltd</title>
+    <style>
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--gray-border);
+        border-radius: 4px;
+        font-family: var(--font-family);
+      }
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a href="/index.html" class="logo-wrapper">
+          <img src="/logo.svg" alt="DAV Containers Logo" />
+          <span class="logo-text">DAV Containers</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/why-us.html">Why Choose Us</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container fade-in">
+          <h1 style="color: var(--primary-red); font-size: 3rem; text-align: center; margin-bottom: 60px;">Contact Us</h1>
+          
+          <div class="contact-grid">
+            <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+              <h2 style="margin-bottom: 20px;">Get in Touch</h2>
+              <form onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message / Quote Request</label>
+                  <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+              </form>
+            </div>
+
+            <div style="padding: 40px;">
+              <h2 style="margin-bottom: 20px;">Corporate Office & Plant</h2>
+              <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                <strong>D.A.V. Containers Pvt. Ltd.</strong><br>
+                Gharoula Road, Ladwa,<br>
+                Kurukshetra, Haryana, 136132<br>
+                India
+              </p>
+              
+              <div style="width: 100%; height: 300px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+                <span style="color: #999;">[ Interactive Map Placeholder ]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4 style="color: var(--primary-red);">DAV Containers Pvt. Ltd.</h4>
+            <p>Advanced semi-automatic manufacturing unit providing state-of-st-the-art packaging solutions since 2008.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/about.html">About Us</a></li>
+              <li><a href="/products.html">Products</a></li>
+              <li><a href="/why-us.html">Why Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul>
+              <li>Gharoula Road, Ladwa</li>
+              <li>Kurukshetra, Haryana, 136132</li>
+              <li>India</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 D.A.V. Containers Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
