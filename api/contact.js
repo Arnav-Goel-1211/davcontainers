@@ -8,10 +8,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, message } = req.body;
+    const { name, phone, message } = req.body;
 
-    if (!name || !email || !message) {
-      return res.status(400).json({ message: 'Name, email, and message are required' });
+    if (!name || !phone || !message) {
+      return res.status(400).json({ message: 'Name, phone, and message are required' });
     }
 
     const targetEmail = process.env.CONTACT_EMAIL || 'test@example.com';
@@ -20,8 +20,7 @@ export default async function handler(req, res) {
       from: 'Contact Form <onboarding@resend.dev>',
       to: [targetEmail],
       subject: `New Inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      reply_to: email,
+      text: `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`,
     });
 
     return res.status(200).json({ success: true, data });

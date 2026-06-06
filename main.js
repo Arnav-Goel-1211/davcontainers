@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       
       const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
       const message = document.getElementById('message').value;
 
       statusEl.style.display = 'block';
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ name, email, message }),
+          body: JSON.stringify({ name, phone, message }),
         });
 
         const result = await response.json();
