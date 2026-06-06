@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "resend": "^6.12.4"
   }
 }

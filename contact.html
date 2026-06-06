@@ -58,7 +58,8 @@
           <div class="contact-grid">
             <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
               <h2 style="margin-bottom: 20px;">Get in Touch</h2>
-              <form onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
+              <form id="contactForm">
+                <div id="formStatus" style="margin-bottom: 15px; font-weight: 600; display: none;"></div>
                 <div class="form-group">
                   <label for="name">Full Name</label>
                   <input type="text" id="name" required />
