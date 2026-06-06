@@ -35,6 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Contact Form Handling
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
+    const productSelect = document.getElementById('product');
+    
+    // Auto-select product based on URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const productParam = urlParams.get('product');
+    if (productParam && productSelect) {
+      const optionExists = Array.from(productSelect.options).some(opt => opt.value === productParam);
+      if (optionExists) {
+        productSelect.value = productParam;
+      }
+    }
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
@@ -43,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const name = document.getElementById('name').value;
       const phone = document.getElementById('phone').value;
+      const product = productSelect ? productSelect.value : 'general';
       const message = document.getElementById('message').value;
 
       statusEl.style.display = 'block';
@@ -56,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ name, phone, message }),
+          body: JSON.stringify({ name, phone, product, message }),
         });
 
         const result = await response.json();

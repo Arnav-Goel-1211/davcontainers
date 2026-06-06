@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, phone, message } = req.body;
+    const { name, phone, product, message } = req.body;
 
     if (!name || !phone || !message) {
       return res.status(400).json({ message: 'Name, phone, and message are required' });
@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     const data = await resend.emails.send({
       from: 'Contact Form <onboarding@resend.dev>',
       to: [targetEmail],
-      subject: `New Inquiry from ${name}`,
-      text: `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`,
+      subject: `New Inquiry from ${name} - ${product}`,
+      text: `Name: ${name}\nPhone: ${phone}\nProduct Interest: ${product}\n\nMessage:\n${message}`,
     });
 
     return res.status(200).json({ success: true, data });
