@@ -20,71 +20,167 @@
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/products.html">Products</a></li>
+          <li><a href="/design.html">Design Your Package</a></li>
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/why-us.html">Why Choose Us</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </header>
 
     <main>
-      <section class="hero section" style="background: linear-gradient(to right, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.4) 100%), url('/warehouse_hero.png') center/cover no-repeat; min-height: 80vh; display: flex; align-items: center;">
+      <section class="hero section" style="background: linear-gradient(to right, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.4) 100%), url('/warehouse_hero.png') center/cover no-repeat; min-height: 55vh; display: flex; align-items: center; padding: 50px 0;">
         <div class="container fade-in">
-          <h1 style="font-size: 3.8rem; color: #ffffff; margin-bottom: 20px; line-height: 1.1; max-width: 800px;">Advanced Packaging Solutions<br><span style="color: var(--primary-red);">for Modern Industries</span></h1>
-          <p style="font-size: 1.25rem; max-width: 650px; margin-bottom: 40px; color: #d1d5db;">Premium corrugated boxes and eco-friendly pallets delivering durability and brand excellence since 2008.</p>
-          <div style="display: flex; gap: 20px;">
-            <a href="/products.html" class="btn" style="background: var(--primary-red); border: 2px solid var(--primary-red); color: white;">Explore Products</a>
-            <a href="/contact.html" class="btn btn-secondary" style="background: transparent; border: 2px solid white; color: white;">Request a Quote</a>
+          <h1 style="font-size: 2.8rem; color: #ffffff; margin-bottom: 14px; line-height: 1.15; max-width: 700px;">Advanced Packaging Solutions<br><span style="color: var(--primary-red);">for Modern Industries</span></h1>
+          <p style="font-size: 1.1rem; max-width: 550px; margin-bottom: 28px; color: #d1d5db;">Premium corrugated boxes and eco-friendly pallets delivering durability and brand excellence since 2008.</p>
+          <div style="display: flex; gap: 16px;">
+            <a href="/products.html" class="btn" style="background: var(--primary-red); border: 2px solid var(--primary-red); color: white; padding: 12px 28px;">Explore Products</a>
+            <a href="/contact.html" class="btn btn-secondary" style="background: transparent; border: 2px solid white; color: white; padding: 12px 28px;">Request a Quote</a>
           </div>
         </div>
       </section>
 
-      <!-- Sustainable Practices Section -->
-      <section class="section" style="background: linear-gradient(135deg, #f0f8f1, #e0f2e5);">
+      <!-- Get Your Custom Quote Banner -->
+      <section class="fade-in" style="background: linear-gradient(135deg, #0a192f 0%, #1a2d4a 100%); padding: 45px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(230,28,56,0.1), transparent 60%), radial-gradient(circle at 80% 50%, rgba(0,179,89,0.08), transparent 60%); pointer-events: none;"></div>
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; position: relative;">
+          <div>
+            <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 6px;">Get Your Custom Quote</h2>
+            <p style="color: #b0bcc9; font-size: 1rem; max-width: 450px; margin: 0;">Design your packaging in 4 simple steps — choose box type, dimensions, printing & more.</p>
+          </div>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="/design.html" class="btn" style="background: var(--primary-red); border-color: var(--primary-red); color: white; padding: 14px 32px; font-size: 1rem;">Design Your Package →</a>
+            <a href="/contact.html" class="btn" style="background: transparent; border: 2px solid rgba(255,255,255,0.4); color: #fff; box-shadow: none; padding: 14px 32px; font-size: 1rem;">Talk to an Expert</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sustainable Practices Section (Compact) -->
+      <section style="background: linear-gradient(135deg, #f0f8f1, #e0f2e5); padding: 50px 0;">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <span class="fade-in" style="background: var(--accent-green); color: white; padding: 5px 10px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Sustainable Practices</span>
+            <h2 class="fade-in" style="color: var(--dark-text); font-size: 2rem; margin-top: 12px;">Eco-Friendly Innovations</h2>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+            <!-- Crate Size Box -->
+            <div class="fade-in" style="flex: 1; min-width: 280px; background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: row; border-left: 4px solid var(--accent-green);">
+              <div style="width: 160px; min-height: 140px; flex-shrink: 0; background: white;">
+                <img src="/crate_box.png" alt="Crate Size Boxes" style="width: 100%; height: 100%; object-fit: contain;" />
+              </div>
+              <div style="padding: 20px; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 8px;">Crate-Size Corrugated Boxes</h3>
+                <p style="font-size: 0.9rem; line-height: 1.5; color: #555; margin-bottom: 12px;">Heavy-duty crate replacement — 100% recyclable, biodegradable, and eco-friendly.</p>
+                <a href="/contact.html?product=crate-size-box&type=quote" class="btn" style="background: var(--accent-green); border-color: var(--accent-green); padding: 8px 20px; font-size: 0.8rem; width: fit-content;">Inquire Now</a>
+              </div>
+            </div>
+            <!-- Corrugated Pallets -->
+            <div class="fade-in" style="flex: 1; min-width: 280px; background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: row; border-left: 4px solid var(--primary-red);">
+              <div style="width: 160px; min-height: 140px; flex-shrink: 0; background: white;">
+                <img src="/pallet.png" alt="Corrugated Pallets" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 20px; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 8px;">Corrugated Pallets</h3>
+                <p style="font-size: 0.9rem; line-height: 1.5; color: #555; margin-bottom: 12px;">Eco-friendly alternative to wooden pallets — lightweight, robust, no fumigation needed.</p>
+                <a href="/contact.html?product=corrugated-pallets&type=quote" class="btn" style="background: var(--accent-green); border-color: var(--accent-green); padding: 8px 20px; font-size: 0.8rem; width: fit-content;">Inquire Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Our Products Section -->
+      <section class="section" style="background: var(--light-bg);">
         <div class="container">
           <div style="text-align: center; margin-bottom: 50px;">
-            <span class="fade-in" style="background: var(--accent-green); color: white; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Sustainable Practices</span>
-            <h2 class="fade-in" style="color: var(--dark-text); font-size: 2.5rem; margin-top: 15px;">Eco-Friendly Innovations</h2>
+            <span class="fade-in" style="background: var(--primary-red); color: white; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Our Range</span>
+            <h2 class="fade-in" style="color: var(--dark-text); font-size: 2.5rem; margin-top: 15px;">What We Manufacture</h2>
+            <p class="fade-in" style="color: #777; max-width: 600px; margin: 10px auto 0;">Premium corrugated packaging solutions for agriculture, industry, and commerce.</p>
           </div>
-          
-          <div style="display: flex; flex-wrap: wrap; gap: 40px;">
-            <!-- Crate Size Box -->
-            <div class="fade-in" style="flex: 1; min-width: 300px; background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); display: flex; flex-direction: column; border-top: 4px solid var(--accent-green);">
-              <div style="height: 250px; background: white; position: relative;">
-                <img src="/crate_box.png" alt="Crate Size Boxes" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" />
-                <div style="position: absolute; top: 15px; right: 15px; background: white; border-radius: 50%; padding: 8px; box-shadow: var(--shadow-sm);">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+            <!-- Apple Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/apple.png" alt="Apple Box" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <div style="padding: 30px; flex-grow: 1; display: flex; flex-direction: column;">
-                <h3 style="color: var(--dark-text); font-size: 1.8rem; margin-bottom: 15px;">Crate-Size Corrugated Boxes</h3>
-                <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin-bottom: 25px; flex-grow: 1;">
-                  Heavy-duty crate-sized corrugated boxes engineered as a direct replacement for traditional plastic crates. They offer identical structural integrity while being 100% recyclable, biodegradable, and significantly reducing your carbon footprint.
-                </p>
-                <div>
-                  <a href="/contact.html?product=crate-size-box&type=quote" class="btn" style="background: var(--accent-green); border-color: var(--accent-green);">Inquire Now</a>
-                </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Apple Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Sturdy fruit packaging</p>
               </div>
-            </div>
-
-            <!-- Corrugated Pallets -->
-            <div class="fade-in" style="flex: 1; min-width: 300px; background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); display: flex; flex-direction: column; border-top: 4px solid var(--primary-red);">
-              <div style="height: 250px; background: white; position: relative;">
-                <img src="/pallet.png" alt="Corrugated Pallets" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" />
-                <div style="position: absolute; top: 15px; right: 15px; background: white; border-radius: 50%; padding: 8px; box-shadow: var(--shadow-sm);">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M4 12v8"></path><path d="M10 12v8"></path><path d="M14 12v8"></path><path d="M20 12v8"></path><path d="M2 8h20"></path><path d="M2 4h20"></path></svg>
-                </div>
+            </a>
+            <!-- Mango Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/mango.png" alt="Mango Box" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <div style="padding: 30px; flex-grow: 1; display: flex; flex-direction: column;">
-                <h3 style="color: var(--dark-text); font-size: 1.8rem; margin-bottom: 15px;">Corrugated Pallets</h3>
-                <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin-bottom: 25px; flex-grow: 1;">
-                  Highly durable Corrugated Pallets designed as an eco-friendly alternative to wooden and plastic pallets. They are lightweight, structurally robust, reduce shipping costs, and completely eliminate the need for fumigation.
-                </p>
-                <div>
-                  <a href="/contact.html?product=corrugated-pallets&type=quote" class="btn" style="background: var(--accent-green); border-color: var(--accent-green);">Inquire Now</a>
-                </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Mango Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Premium mango cartons</p>
               </div>
-            </div>
+            </a>
+            <!-- Peach Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/boxes.png" alt="Peach Box" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Peach Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Delicate fruit protection</p>
+              </div>
+            </a>
+            <!-- Shimla Mirch Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/shimla_mirch_box.png" alt="Shimla Mirch Box" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Shimla Mirch Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Vegetable cartons</p>
+              </div>
+            </a>
+            <!-- Bhindi Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/boxes.png" alt="Bhindi Box" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Bhindi Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Vegetable cartons</p>
+              </div>
+            </a>
+            <!-- Flower Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/boxes.png" alt="Flower Box" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Flower Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Floral packaging</p>
+              </div>
+            </a>
+            <!-- Industrial Boxes -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/boxes.png" alt="Industrial Boxes" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Industrial Boxes</h4>
+                <p style="color: #888; font-size: 0.85rem;">Heavy-duty industrial</p>
+              </div>
+            </a>
+            <!-- Crate-Size Box -->
+            <a href="/products.html" class="fade-in" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="height: 160px; overflow: hidden;">
+                <img src="/crate_box.png" alt="Crate Size Box" style="width: 100%; height: 100%; object-fit: contain; background: #f5f5f5;" />
+              </div>
+              <div style="padding: 18px; text-align: center;">
+                <h4 style="color: var(--dark-text); font-size: 1.1rem; margin-bottom: 4px;">Crate-Size Box</h4>
+                <p style="color: #888; font-size: 0.85rem;">Plastic crate replacement</p>
+              </div>
+            </a>
+          </div>
+          <div class="fade-in" style="text-align: center; margin-top: 40px;">
+            <a href="/products.html" class="btn" style="background: transparent; color: var(--primary-red); border: 2px solid var(--primary-red); box-shadow: none;">View All Products →</a>
           </div>
         </div>
       </section>
@@ -112,6 +208,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer>
@@ -126,7 +223,7 @@
             <ul>
               <li><a href="/products.html">Products</a></li>
               <li><a href="/about.html">About Us</a></li>
-              <li><a href="/why-us.html">Why Us</a></li>
+              <li><a href="/design.html">Design Your Package</a></li>
             </ul>
           </div>
           <div class="footer-col">

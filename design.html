@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Design your custom corrugated packaging with DAV Containers. Choose box type, dimensions, material, printing and more. Get an instant quote or let our executive help you." />
+    <title>Design Your Package | DAV Containers Pvt Ltd</title>
+    <style>
+      .design-hero { background: linear-gradient(135deg, var(--dark-text) 0%, #1a2d4a 100%); padding: 45px 0 35px; text-align: center; position: relative; overflow: hidden; }
+      .design-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 8px; position: relative; }
+      .design-hero p { color: #c5cdd8; font-size: 1rem; max-width: 500px; margin: 0 auto; position: relative; }
+      .steps-progress-wrap { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 60px; z-index: 50; padding: 14px 0; }
+      .steps-progress { display: flex; justify-content: center; align-items: center; gap: 0; max-width: 600px; margin: 0 auto; }
+      .step-indicator { display: flex; flex-direction: column; align-items: center; cursor: pointer; position: relative; z-index: 2; flex: 1; }
+      .step-circle { width: 38px; height: 38px; border-radius: 50%; background: #e8eaec; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: #999; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); border: 2px solid transparent; }
+      .step-indicator.active .step-circle { background: var(--primary-red); color: #fff; border-color: rgba(230,28,56,0.3); box-shadow: 0 3px 12px rgba(230,28,56,0.3); transform: scale(1.05); }
+      .step-indicator.completed .step-circle { background: var(--accent-green); color: #fff; border-color: rgba(0,179,89,0.3); }
+      .step-label { margin-top: 6px; font-size: 0.7rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+      .step-indicator.active .step-label, .step-indicator.completed .step-label { color: var(--dark-text); }
+      .step-desc { font-size: 0.6rem; color: #bbb; margin-top: 1px; text-align: center; }
+      .step-indicator.active .step-desc { color: #888; }
+      .step-indicator.completed .step-desc { color: #999; }
+      .step-line { flex: 1; height: 2px; background: #e8eaec; position: relative; top: -8px; z-index: 1; }
+      .step-line.completed { background: var(--accent-green); }
+      .design-layout { display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: start; }
+      .design-form-card { background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 6px 25px rgba(0,0,0,0.05); position: relative; }
+      .design-form-card h2 { font-size: 1.4rem; margin-bottom: 5px; color: var(--dark-text); }
+      .design-form-card .step-subtitle { color: #777; font-size: 0.9rem; margin-bottom: 25px; }
+      .design-form-group { margin-bottom: 18px; }
+      .design-form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: var(--dark-text); }
+      .design-form-group input, .design-form-group select, .design-form-group textarea { width: 100%; padding: 11px 14px; border: 2px solid #e8eaec; border-radius: 8px; font-family: var(--font-family); font-size: 0.9rem; color: var(--dark-text); background: #fafbfc; transition: border-color 0.3s, box-shadow 0.3s; outline: none; }
+      .design-form-group input:focus, .design-form-group select:focus, .design-form-group textarea:focus { border-color: var(--primary-red); box-shadow: 0 0 0 3px rgba(230,28,56,0.08); background: #fff; }
+      .design-form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+      .option-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 6px; }
+      .option-card { border: 2px solid #e8eaec; border-radius: 10px; padding: 16px 10px; text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); background: #fafbfc; }
+      .option-card:hover { border-color: var(--primary-red); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.05); }
+      .option-card.selected { border-color: var(--primary-red); background: rgba(230,28,56,0.04); box-shadow: 0 3px 14px rgba(230,28,56,0.1); }
+      .option-card svg { margin-bottom: 8px; }
+      .option-card .option-title { font-weight: 700; font-size: 0.85rem; color: var(--dark-text); }
+      .option-card .option-desc { font-size: 0.7rem; color: #888; margin-top: 2px; }
+      .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
+      .btn-back { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: transparent; border: 2px solid #ddd; border-radius: 50px; font-weight: 600; font-size: 0.85rem; cursor: pointer; color: #666; font-family: var(--font-family); transition: all 0.3s; }
+      .btn-back:hover { border-color: var(--dark-text); color: var(--dark-text); }
+      .btn-next { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; background: var(--primary-red); color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 0.9rem; cursor: pointer; font-family: var(--font-family); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 14px rgba(230,28,56,0.25); }
+      .btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(230,28,56,0.35); }
+      .step-section { display: none; animation: fadeSlide 0.4s ease forwards; }
+      .step-section.active { display: block; }
+      @keyframes fadeSlide { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      .executive-sidebar { position: sticky; top: 130px; }
+      .executive-sidebar-card { background: linear-gradient(135deg, #0a192f 0%, #1a2d4a 100%); border-radius: 14px; padding: 28px 22px; text-align: center; position: relative; overflow: hidden; margin-bottom: 20px; }
+      .executive-sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 30%, rgba(230,28,56,0.1), transparent 60%); pointer-events: none; }
+      .executive-sidebar-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; position: relative; }
+      .executive-sidebar-card p { color: #b0bcc9; font-size: 0.82rem; margin-bottom: 18px; position: relative; line-height: 1.5; }
+      .btn-executive { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: linear-gradient(135deg, var(--accent-green), #00994d); color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 0.82rem; cursor: pointer; font-family: var(--font-family); text-decoration: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 18px rgba(0,179,89,0.3); position: relative; }
+      .btn-executive:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,179,89,0.4); color: #fff; }
+      .sidebar-info { background: #fff; border-radius: 14px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+      .sidebar-info h4 { font-size: 0.95rem; margin-bottom: 12px; color: var(--dark-text); }
+      .sidebar-info ul { list-style: none; padding: 0; }
+      .sidebar-info li { font-size: 0.82rem; color: #666; padding: 6px 0; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; gap: 8px; }
+      .sidebar-info li:last-child { border-bottom: none; }
+      .summary-table { width: 100%; border-collapse: collapse; }
+      .summary-table tr { border-bottom: 1px solid #f0f0f0; }
+      .summary-table td { padding: 10px 0; font-size: 0.9rem; }
+      .summary-table td:first-child { font-weight: 600; color: #888; width: 40%; }
+      .summary-table td:last-child { font-weight: 600; color: var(--dark-text); }
+      @media (max-width: 900px) { .design-layout { grid-template-columns: 1fr; } .executive-sidebar { position: static; } }
+      @media (max-width: 768px) { .design-form-card { padding: 20px 16px; } .design-form-row { grid-template-columns: 1fr; } .option-cards { grid-template-columns: 1fr 1fr; } .step-label { font-size: 0.6rem; } .step-desc { display: none; } .step-circle { width: 32px; height: 32px; font-size: 0.85rem; } .form-nav { flex-direction: column; gap: 12px; } .form-nav .btn-back, .form-nav .btn-next { width: 100%; justify-content: center; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a href="/index.html" class="logo-wrapper">
+          <img src="/logo.svg" alt="DAV Containers Pvt. Ltd. Logo" />
+          <span class="logo-text">DAV Containers Pvt. Ltd.</span>
+        </a>
+        <button class="menu-toggle">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/design.html">Design Your Package</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="design-hero">
+        <div class="container">
+          <h1 class="fade-in">Design Your <span style="color: var(--primary-red);">Package</span></h1>
+          <p class="fade-in">Tell us what you need and we'll craft the perfect corrugated packaging solution tailored to your requirements.</p>
+        </div>
+      </section>
+
+      <!-- Sticky Steps Progress Bar -->
+      <div class="steps-progress-wrap">
+        <div class="container">
+          <div class="steps-progress">
+            <div class="step-indicator active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Choose Type</span>
+              <span class="step-desc">Select your box style</span>
+            </div>
+            <div class="step-line" id="line-1"></div>
+            <div class="step-indicator" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Dimensions</span>
+              <span class="step-desc">Size &amp; material</span>
+            </div>
+            <div class="step-line" id="line-2"></div>
+            <div class="step-indicator" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Customise</span>
+              <span class="step-desc">Printing &amp; finish</span>
+            </div>
+            <div class="step-line" id="line-3"></div>
+            <div class="step-indicator" data-step="4">
+              <div class="step-circle">4</div>
+              <span class="step-label">Get Quote</span>
+              <span class="step-desc">Submit &amp; receive quote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configurator -->
+      <section class="section" style="padding-top: 30px; background: var(--light-bg);">
+        <div class="container">
+          <div class="design-layout">
+
+            <!-- Left: Form Card -->
+            <div class="design-form-card">
+              <form id="designForm">
+
+              <!-- Step 1: Box Type -->
+              <div class="step-section active" id="step-1">
+                <h2>Select Your Box Type</h2>
+                <p class="step-subtitle">Choose the packaging style that best suits your product.</p>
+                <div class="option-cards">
+                  <div class="option-card" data-value="fruit-box" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <div class="option-title">Fruit Boxes</div>
+                    <div class="option-desc">Apple, Mango, Peach</div>
+                  </div>
+                  <div class="option-card" data-value="vegetable-box" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <div class="option-title">Vegetable Boxes</div>
+                    <div class="option-desc">Shimla Mirch, Bhindi</div>
+                  </div>
+                  <div class="option-card" data-value="crate-size" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="1.5"><rect x="1" y="3" width="22" height="18" rx="2"></rect><line x1="1" y1="12" x2="23" y2="12"></line><line x1="12" y1="3" x2="12" y2="21"></line></svg>
+                    <div class="option-title">Crate-Size Box</div>
+                    <div class="option-desc">Heavy-duty replacement</div>
+                  </div>
+                  <div class="option-card" data-value="industrial" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a4 4 0 0 0-8 0v2"></path></svg>
+                    <div class="option-title">Industrial Boxes</div>
+                    <div class="option-desc">Custom industrial use</div>
+                  </div>
+                  <div class="option-card" data-value="flower-box" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e74c8b" stroke-width="1.5"><circle cx="12" cy="8" r="3"></circle><circle cx="8" cy="12" r="3"></circle><circle cx="16" cy="12" r="3"></circle><circle cx="12" cy="16" r="3"></circle><circle cx="12" cy="12" r="2" fill="#e74c8b"></circle></svg>
+                    <div class="option-title">Flower Box</div>
+                    <div class="option-desc">Delicate floral packaging</div>
+                  </div>
+                  <div class="option-card" data-value="corrugated-pallet" onclick="selectOption(this, 'boxType')">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8e44ad" stroke-width="1.5"><path d="M2 12h20"></path><path d="M4 12v8"></path><path d="M10 12v8"></path><path d="M14 12v8"></path><path d="M20 12v8"></path><path d="M2 8h20"></path><path d="M2 4h20"></path></svg>
+                    <div class="option-title">Corrugated Pallets</div>
+                    <div class="option-desc">Eco-friendly pallets</div>
+                  </div>
+                </div>
+                <input type="hidden" id="boxType" name="boxType" />
+                <div class="form-nav">
+                  <div></div>
+                  <button type="button" class="btn-next" onclick="nextStep(2)">Next Step →</button>
+                </div>
+              </div>
+
+              <!-- Step 2: Dimensions & Material -->
+              <div class="step-section" id="step-2">
+                <h2>Dimensions &amp; Material</h2>
+                <p class="step-subtitle">Specify the size and board type for your packaging.</p>
+                <div class="design-form-row">
+                  <div class="design-form-group">
+                    <label for="length">Length (inches)</label>
+                    <input type="number" id="length" name="length" placeholder="e.g. 18" min="1" />
+                  </div>
+                  <div class="design-form-group">
+                    <label for="width">Width (inches)</label>
+                    <input type="number" id="width" name="width" placeholder="e.g. 12" min="1" />
+                  </div>
+                  <div class="design-form-group">
+                    <label for="height">Height (inches)</label>
+                    <input type="number" id="height" name="height" placeholder="e.g. 10" min="1" />
+                  </div>
+                </div>
+                <div class="design-form-group">
+                  <label for="ply">Board Ply / Flute Type</label>
+                  <select id="ply" name="ply">
+                    <option value="">-- Select Ply --</option>
+                    <option value="3-ply">3 Ply</option>
+                    <option value="5-ply">5 Ply</option>
+                    <option value="7-ply">7 Ply</option>
+                    <option value="9-ply">9 Ply (Heavy Duty)</option>
+                  </select>
+                </div>
+                <div class="design-form-group">
+                  <label for="quantity">Estimated Quantity</label>
+                  <input type="number" id="quantity" name="quantity" placeholder="e.g. 500" min="1" />
+                </div>
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="prevStep(1)">← Back</button>
+                  <button type="button" class="btn-next" onclick="nextStep(3)">Next Step →</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Customisation -->
+              <div class="step-section" id="step-3">
+                <h2>Printing &amp; Customisation</h2>
+                <p class="step-subtitle">Enhance your packaging with custom printing and finishing.</p>
+                <div class="design-form-group">
+                  <label>Printing Type</label>
+                  <div class="option-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="option-card" data-value="no-print" onclick="selectOption(this, 'printType')">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+                      <div class="option-title">No Print</div>
+                      <div class="option-desc">Plain brown kraft</div>
+                    </div>
+                    <div class="option-card" data-value="single-color" onclick="selectOption(this, 'printType')">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5"><circle cx="12" cy="12" r="10" fill="rgba(230,28,56,0.1)"></circle></svg>
+                      <div class="option-title">Single Colour</div>
+                      <div class="option-desc">2-colour flexo print</div>
+                    </div>
+                    <div class="option-card" data-value="multi-color" onclick="selectOption(this, 'printType')">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="10" r="6" stroke="var(--primary-red)" fill="rgba(230,28,56,0.08)"></circle><circle cx="15" cy="10" r="6" stroke="#3498db" fill="rgba(52,152,219,0.08)"></circle><circle cx="12" cy="15" r="6" stroke="var(--accent-green)" fill="rgba(0,179,89,0.08)"></circle></svg>
+                      <div class="option-title">Multi Colour</div>
+                      <div class="option-desc">Full-colour branding</div>
+                    </div>
+                  </div>
+                  <input type="hidden" id="printType" name="printType" />
+                </div>
+                <div class="design-form-group">
+                  <label for="finish">Surface Finish</label>
+                  <select id="finish" name="finish">
+                    <option value="">-- Select Finish --</option>
+                    <option value="kraft">Kraft</option>
+                    <option value="duplex">Duplex</option>
+                    <option value="liner">Liner</option>
+                    <option value="coated-liner">Coated Liner</option>
+                  </select>
+                </div>
+                <div class="design-form-group">
+                  <label for="notes">Special Requirements</label>
+                  <textarea id="notes" name="notes" rows="3" placeholder="Any special die-cut, handle, ventilation holes, partitions, or branding instructions..."></textarea>
+                </div>
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="prevStep(2)">← Back</button>
+                  <button type="button" class="btn-next" onclick="nextStep(4)">Review &amp; Submit →</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Review & Submit -->
+              <div class="step-section" id="step-4">
+                <h2>Review &amp; Submit</h2>
+                <p class="step-subtitle">Confirm your packaging details and submit for a quote.</p>
+
+                <table class="summary-table" id="summaryTable">
+                  <tr><td>Box Type</td><td id="sum-boxType">—</td></tr>
+                  <tr><td>Dimensions</td><td id="sum-dimensions">—</td></tr>
+                  <tr><td>Board Ply</td><td id="sum-ply">—</td></tr>
+                  <tr><td>Quantity</td><td id="sum-quantity">—</td></tr>
+                  <tr><td>Printing</td><td id="sum-print">—</td></tr>
+                  <tr><td>Finish</td><td id="sum-finish">—</td></tr>
+                  <tr><td>Special Notes</td><td id="sum-notes">—</td></tr>
+                </table>
+
+                <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid #f0f0f0;">
+                  <h3 style="font-size: 1.2rem; margin-bottom: 20px;">Your Contact Details</h3>
+                  <div class="design-form-row" style="grid-template-columns: 1fr 1fr;">
+                    <div class="design-form-group">
+                      <label for="contactName">Full Name *</label>
+                      <input type="text" id="contactName" name="contactName" placeholder="Your name" required />
+                    </div>
+                    <div class="design-form-group">
+                      <label for="contactPhone">Phone Number *</label>
+                      <input type="tel" id="contactPhone" name="contactPhone" placeholder="+91 XXXXXXXXXX" required />
+                    </div>
+                  </div>
+                  <div class="design-form-group">
+                    <label for="contactEmail">Email (Optional)</label>
+                    <input type="email" id="contactEmail" name="contactEmail" placeholder="your@email.com" />
+                  </div>
+                  <div class="design-form-group">
+                    <label for="contactCompany">Company / Business Name (Optional)</label>
+                    <input type="text" id="contactCompany" name="contactCompany" placeholder="Your company name" />
+                  </div>
+                </div>
+
+                <div id="designFormStatus" style="margin-top: 15px; font-weight: 600; display: none;"></div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn-back" onclick="prevStep(3)">← Back</button>
+                  <button type="submit" class="btn-next" style="background: var(--accent-green); box-shadow: 0 6px 20px rgba(0,179,89,0.3);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Submit Quote Request
+                  </button>
+                </div>
+              </div>
+
+            </form>
+            </div>
+
+            <!-- Right: Sidebar -->
+            <div class="executive-sidebar">
+              <div class="executive-sidebar-card">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5" style="margin-bottom: 10px; position: relative;">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <h3>Not Sure What You Need?</h3>
+                <p>Our packaging expert will understand your requirements and recommend the ideal solution.</p>
+                <a href="/contact.html?type=executive-help" class="btn-executive">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Let Our Executive Help You
+                </a>
+              </div>
+              <div class="sidebar-info">
+                <h4>What You'll Get</h4>
+                <ul>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom quote within 24 hours</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Free design consultation</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sample box before bulk order</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Best price guarantee</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4 style="color: var(--primary-red);">DAV Containers Pvt. Ltd.</h4>
+            <p>Advanced semi-automatic manufacturing unit providing state-of-the-art packaging solutions since 2008.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/products.html">Products</a></li>
+              <li><a href="/about.html">About Us</a></li>
+              <li><a href="/design.html">Design Your Package</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul>
+              <li>Gharoula Road, Ladwa</li>
+              <li>Kurukshetra, Haryana, 136132</li>
+              <li>+91 9215560695, +91 9254360695</li>
+              <li><a href="mailto:davcontainers@gmail.com" style="color: inherit; text-decoration: none;">davcontainers@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 D.A.V. Containers Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+      let currentStep = 1;
+      const formData = {};
+
+      // ===== Validation Toast =====
+      function showValidationMsg(msg) {
+        let toast = document.getElementById('validationToast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.id = 'validationToast';
+          toast.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#e61c38;color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;font-size:0.95rem;z-index:9999;box-shadow:0 8px 30px rgba(230,28,56,0.3);opacity:0;transition:opacity 0.3s;pointer-events:none;max-width:90%;text-align:center;';
+          document.body.appendChild(toast);
+        }
+        toast.textContent = msg;
+        toast.style.opacity = '1';
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(function() { toast.style.opacity = '0'; }, 3500);
+      }
+
+      // ===== Validate a specific step =====
+      function validateStep(step) {
+        var missing = [];
+        if (step === 1) {
+          if (!document.getElementById('boxType').value) missing.push('Box Type');
+        } else if (step === 2) {
+          if (!document.getElementById('length').value) missing.push('Length');
+          if (!document.getElementById('width').value) missing.push('Width');
+          if (!document.getElementById('height').value) missing.push('Height');
+          if (!document.getElementById('ply').value) missing.push('Board Ply');
+          if (!document.getElementById('quantity').value) missing.push('Quantity');
+        } else if (step === 3) {
+          if (!document.getElementById('printType').value) missing.push('Printing Type');
+          if (!document.getElementById('finish').value) missing.push('Surface Finish');
+        }
+        return missing;
+      }
+
+      function selectOption(card, fieldId) {
+        card.parentElement.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        document.getElementById(fieldId).value = card.dataset.value;
+        formData[fieldId] = card.dataset.value;
+      }
+
+      function updateProgressBar(step) {
+        document.querySelectorAll('.step-indicator').forEach(function(ind, i) {
+          var s = i + 1;
+          ind.classList.remove('active', 'completed');
+          if (s === step) ind.classList.add('active');
+          else if (s < step) ind.classList.add('completed');
+        });
+        document.querySelectorAll('.step-line').forEach(function(line, i) {
+          line.classList.toggle('completed', i + 1 < step);
+        });
+      }
+
+      function showStep(step) {
+        document.querySelectorAll('.step-section').forEach(function(s) { s.classList.remove('active'); });
+        document.getElementById('step-' + step).classList.add('active');
+        updateProgressBar(step);
+        currentStep = step;
+        document.querySelector('.design-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function nextStep(targetStep) {
+        // Validate current step before moving forward
+        var missing = validateStep(currentStep);
+        if (missing.length > 0) {
+          showValidationMsg('Please fill in: ' + missing.join(', '));
+          return;
+        }
+        if (targetStep === 4) populateSummary();
+        showStep(targetStep);
+      }
+
+      function prevStep(step) {
+        showStep(step);
+      }
+
+      // ===== Clickable Step Indicators =====
+      document.querySelectorAll('.step-indicator').forEach(function(ind) {
+        ind.addEventListener('click', function() {
+          var target = parseInt(ind.dataset.step);
+          if (target === currentStep) return;
+
+          // Going backwards is always allowed
+          if (target < currentStep) {
+            if (target === 4) populateSummary();
+            showStep(target);
+            return;
+          }
+
+          // Going forward — validate each step in between
+          for (var s = currentStep; s < target; s++) {
+            var missing = validateStep(s);
+            if (missing.length > 0) {
+              showValidationMsg('Please fill in: ' + missing.join(', '));
+              showStep(s);
+              return;
+            }
+          }
+
+          if (target === 4) populateSummary();
+          showStep(target);
+        });
+      });
+
+      function formatValue(val) {
+        if (!val) return '\u2014';
+        return val.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+      }
+
+      function populateSummary() {
+        var boxType = document.getElementById('boxType').value;
+        var length = document.getElementById('length').value;
+        var width = document.getElementById('width').value;
+        var height = document.getElementById('height').value;
+        var ply = document.getElementById('ply').value;
+        var quantity = document.getElementById('quantity').value;
+        var printType = document.getElementById('printType').value;
+        var finish = document.getElementById('finish').value;
+        var notes = document.getElementById('notes').value;
+
+        document.getElementById('sum-boxType').textContent = formatValue(boxType);
+        document.getElementById('sum-dimensions').textContent = (length && width && height)
+          ? length + '" \u00d7 ' + width + '" \u00d7 ' + height + '"'
+          : '\u2014';
+        document.getElementById('sum-ply').textContent = formatValue(ply);
+        document.getElementById('sum-quantity').textContent = quantity ? Number(quantity).toLocaleString() + ' units' : '\u2014';
+        document.getElementById('sum-print').textContent = formatValue(printType);
+        document.getElementById('sum-finish').textContent = formatValue(finish);
+        document.getElementById('sum-notes').textContent = notes || '\u2014';
+      }
+
+      // Form submission
+      document.getElementById('designForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var statusEl = document.getElementById('designFormStatus');
+        var submitBtn = this.querySelector('button[type="submit"]');
+
+        var name = document.getElementById('contactName').value.trim();
+        var phone = document.getElementById('contactPhone').value.trim();
+        if (!name || !phone) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = 'var(--primary-red)';
+          statusEl.textContent = 'Please fill in your name and phone number.';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Submitting...</span>';
+
+        var payload = {
+          name: name,
+          phone: phone,
+          email: document.getElementById('contactEmail').value.trim(),
+          company: document.getElementById('contactCompany').value.trim(),
+          boxType: document.getElementById('boxType').value,
+          dimensions: document.getElementById('length').value + '" \u00d7 ' + document.getElementById('width').value + '" \u00d7 ' + document.getElementById('height').value + '"',
+          ply: document.getElementById('ply').value,
+          quantity: document.getElementById('quantity').value,
+          printType: document.getElementById('printType').value,
+          finish: document.getElementById('finish').value,
+          notes: document.getElementById('notes').value,
+        };
+
+        try {
+          var res = await fetch('/api/design', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (res.ok) {
+            statusEl.style.display = 'block';
+            statusEl.style.color = 'var(--accent-green)';
+            statusEl.textContent = '\u2705 Your custom packaging request has been submitted! Our team will contact you shortly.';
+            submitBtn.innerHTML = '\u2713 Submitted';
+          } else {
+            throw new Error('Failed');
+          }
+        } catch (err) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = 'var(--primary-red)';
+          statusEl.textContent = '\u274c Something went wrong. Please call us directly at +91 9215560695.';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit Quote Request';
+        }
+      });
+    </script>
+  </body>
+</html>

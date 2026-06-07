@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn about DAV Containers Pvt Ltd — a trusted corrugated packaging manufacturer since 2008. Advanced machinery, exceptional quality, and timely delivery." />
     <title>About Us | DAV Containers Pvt Ltd</title>
+    <style>
+      @media (max-width: 768px) {
+        .about-overview { grid-template-columns: 1fr !important; }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -19,29 +25,101 @@
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/products.html">Products</a></li>
+          <li><a href="/design.html">Design Your Package</a></li>
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/why-us.html">Why Choose Us</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </header>
 
     <main>
-      <section class="section">
+      <!-- Hero -->
+      <section style="background: linear-gradient(135deg, var(--dark-text) 0%, #1a2d4a 100%); padding: 60px 0; text-align: center;">
         <div class="container fade-in">
-          <h1 style="color: var(--primary-red); font-size: 3rem; text-align: center; margin-bottom: 40px;">About Us</h1>
-          <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 900px; margin: 0 auto;">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">Established in 2008</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">
-              D.A.V. Containers Pvt. Ltd., situated in Ladwa, Kurukshetra, Haryana, is a well-established and trusted name in the packaging industry. With over a decade of experience, we have cemented our position as a leading manufacturer of premium packaging solutions.
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">
-              Our state-of-the-art facility features an <strong>advanced semi-automatic manufacturing unit</strong>, enabling us to deliver high volumes of corrugated boxes with unparalleled precision and durability.
-            </p>
-            <h2 style="font-size: 2rem; margin-top: 40px; margin-bottom: 20px;">Our Mission</h2>
-            <p style="font-size: 1.1rem;">
-              To provide robust, reliable, and aesthetically pleasing packaging that not only protects the contents during transit but also serves as a powerful tool for brand awareness. We believe that a high-quality printed box is the first step in customer retention.
-            </p>
+          <h1 style="color: #fff; font-size: 2.8rem; margin-bottom: 10px;">About <span style="color: var(--primary-red);">DAV Containers</span></h1>
+          <p style="color: #c5cdd8; font-size: 1.1rem; max-width: 550px; margin: 0 auto;">Trusted corrugated packaging manufacturer since 2008. Advanced machinery, premium quality, and customer-first approach.</p>
+        </div>
+      </section>
+
+      <!-- Company Overview -->
+      <section class="section" style="background: #fff;">
+        <div class="container">
+          <div class="about-overview" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;" class="fade-in">
+            <div>
+              <span style="background: var(--primary-red); color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Our Story</span>
+              <h2 style="font-size: 2.2rem; margin-top: 15px; margin-bottom: 20px; color: var(--dark-text);">Established in 2008</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 16px;">
+                D.A.V. Containers Pvt. Ltd., situated in Ladwa, Kurukshetra, Haryana, is a well-established and trusted name in the packaging industry. With over a decade of experience, we have cemented our position as a leading manufacturer of premium packaging solutions.
+              </p>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #555;">
+                Our state-of-the-art facility features an <strong>advanced semi-automatic manufacturing unit</strong>, enabling us to deliver high volumes of corrugated boxes with unparalleled precision and durability.
+              </p>
+            </div>
+            <div style="background: var(--light-bg); border-radius: 16px; padding: 40px; border-left: 5px solid var(--primary-red);">
+              <h3 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--dark-text);">Our Mission</h3>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #555;">
+                To provide robust, reliable, and aesthetically pleasing packaging that not only protects the contents during transit but also serves as a powerful tool for brand awareness. We believe that a high-quality printed box is the first step in customer retention.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="section" style="background: var(--light-bg);">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 45px;">
+            <span class="fade-in" style="background: var(--accent-green); color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Our Strengths</span>
+            <h2 class="fade-in" style="color: var(--dark-text); font-size: 2.2rem; margin-top: 15px;">Why Choose Us</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+            <div class="fade-in" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid var(--primary-red); transition: transform 0.3s;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5" style="margin-bottom: 15px;"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M12 6V2"></path><path d="M8 6V4"></path><path d="M16 6V4"></path></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 10px;">Advanced Machinery</h3>
+              <p style="font-size: 0.9rem; color: #666;">Semi-automatic unit guarantees precision, strength, and high-speed production for bulk orders.</p>
+            </div>
+            <div class="fade-in" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid var(--accent-green); transition: transform 0.3s;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5" style="margin-bottom: 15px;"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 10px;">Exceptional Quality</h3>
+              <p style="font-size: 0.9rem; color: #666;">Finest materials ensure boxes withstand rigorous transit and storage conditions.</p>
+            </div>
+            <div class="fade-in" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid var(--primary-red); transition: transform 0.3s;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5" style="margin-bottom: 15px;"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 10px;">Timely Delivery</h3>
+              <p style="font-size: 0.9rem; color: #666;">Centrally located in Kurukshetra, Haryana — prompt logistics across all regions.</p>
+            </div>
+            <div class="fade-in" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid var(--accent-green); transition: transform 0.3s;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5" style="margin-bottom: 15px;"><circle cx="12" cy="8" r="3"></circle><circle cx="8" cy="12" r="3"></circle><circle cx="16" cy="12" r="3"></circle><circle cx="12" cy="16" r="3"></circle><circle cx="12" cy="12" r="2" fill="var(--accent-green)"></circle></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 10px;">Brand Elevation</h3>
+              <p style="font-size: 0.9rem; color: #666;">Custom vivid printing turns every box into a brand ambassador for customer retention.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Values -->
+      <section class="services section" style="background: #fff;">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 45px;">
+            <span class="fade-in" style="background: var(--primary-red); color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">What Drives Us</span>
+            <h2 class="fade-in" style="color: var(--dark-text); font-size: 2.2rem; margin-top: 15px;">Our Core Values</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="fade-in core-value-card" style="background: var(--light-bg); padding: 35px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease, border-bottom 0.3s ease; border-bottom: 4px solid transparent;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 18px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.3rem;">Customer Focus</h3>
+              <p>We work closely with our partners to provide highly tailored packaging solutions that perfectly match specific industry demands.</p>
+            </div>
+            <div class="fade-in core-value-card" style="background: var(--light-bg); padding: 35px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease, border-bottom 0.3s ease; border-bottom: 4px solid transparent;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 18px;"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.3rem;">Uncompromising Quality</h3>
+              <p>Every box and carton undergoes rigorous testing to guarantee exceptional durability and structural integrity.</p>
+            </div>
+            <div class="fade-in core-value-card" style="background: var(--light-bg); padding: 35px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease, border-bottom 0.3s ease; border-bottom: 4px solid transparent;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 18px;"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <h3 style="color: var(--dark-text); font-size: 1.3rem;">Safe Transport</h3>
+              <p>We understand packaging is protection. Our boxes ensure your valuable goods reach their destination safely.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -52,14 +130,14 @@
         <div class="footer-content">
           <div class="footer-col">
             <h4 style="color: var(--primary-red);">DAV Containers Pvt. Ltd.</h4>
-            <p>Advanced semi-automatic manufacturing unit providing state-of-st-the-art packaging solutions since 2008.</p>
+            <p>Advanced semi-automatic manufacturing unit providing state-of-the-art packaging solutions since 2008.</p>
           </div>
           <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
               <li><a href="/products.html">Products</a></li>
               <li><a href="/about.html">About Us</a></li>
-              <li><a href="/why-us.html">Why Us</a></li>
+              <li><a href="/design.html">Design Your Package</a></li>
             </ul>
           </div>
           <div class="footer-col">
