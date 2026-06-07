@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   try {
     const {
       name, phone, email, company,
-      boxType, dimensions, ply, quantity,
+      boxType, dimensions, ply, travelDistance, quantity,
       printType, finish, notes
     } = req.body;
 
@@ -45,6 +45,7 @@ export default async function handler(req, res) {
             <tr><td style="padding: 8px 0; color: #888; width: 35%;">Box Type</td><td style="padding: 8px 0; font-weight: 600;">${formatVal(boxType)}</td></tr>
             <tr><td style="padding: 8px 0; color: #888;">Dimensions</td><td style="padding: 8px 0; font-weight: 600;">${dimensions || 'N/A'}</td></tr>
             <tr><td style="padding: 8px 0; color: #888;">Board Ply</td><td style="padding: 8px 0;">${formatVal(ply)}</td></tr>
+            ${ply === 'not-sure' && travelDistance ? `<tr><td style="padding: 8px 0; color: #888;">Travel Distance</td><td style="padding: 8px 0; font-weight: 600;">${travelDistance} km</td></tr>` : ''}
             <tr><td style="padding: 8px 0; color: #888;">Quantity</td><td style="padding: 8px 0; font-weight: 600;">${quantity ? Number(quantity).toLocaleString() + ' units' : 'N/A'}</td></tr>
             <tr><td style="padding: 8px 0; color: #888;">Printing</td><td style="padding: 8px 0;">${formatVal(printType)}</td></tr>
             <tr><td style="padding: 8px 0; color: #888;">Surface Finish</td><td style="padding: 8px 0;">${formatVal(finish)}</td></tr>

@@ -11,18 +11,19 @@
       .design-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 8px; position: relative; }
       .design-hero p { color: #c5cdd8; font-size: 1rem; max-width: 500px; margin: 0 auto; position: relative; }
       .steps-progress-wrap { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 60px; z-index: 50; padding: 14px 0; }
-      .steps-progress { display: flex; justify-content: center; align-items: center; gap: 0; max-width: 600px; margin: 0 auto; }
-      .step-indicator { display: flex; flex-direction: column; align-items: center; cursor: pointer; position: relative; z-index: 2; flex: 1; }
-      .step-circle { width: 38px; height: 38px; border-radius: 50%; background: #e8eaec; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: #999; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); border: 2px solid transparent; }
+      .steps-progress-container { position: relative; max-width: 600px; margin: 0 auto; padding: 0 10px; }
+      .progress-track { position: absolute; top: 19px; left: 40px; right: 40px; height: 2px; background: #e8eaec; z-index: 1; }
+      .progress-bar-fill { height: 100%; background: var(--accent-green); width: 0%; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
+      .steps-progress { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 2; }
+      .step-indicator { display: flex; flex-direction: column; align-items: center; cursor: pointer; width: 90px; }
+      .step-circle { width: 38px; height: 38px; border-radius: 50%; background: #e8eaec; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: #999; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); border: 2px solid transparent; position: relative; z-index: 3; }
       .step-indicator.active .step-circle { background: var(--primary-red); color: #fff; border-color: rgba(230,28,56,0.3); box-shadow: 0 3px 12px rgba(230,28,56,0.3); transform: scale(1.05); }
       .step-indicator.completed .step-circle { background: var(--accent-green); color: #fff; border-color: rgba(0,179,89,0.3); }
-      .step-label { margin-top: 6px; font-size: 0.7rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+      .step-label { margin-top: 6px; font-size: 0.7rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; text-align: center; }
       .step-indicator.active .step-label, .step-indicator.completed .step-label { color: var(--dark-text); }
       .step-desc { font-size: 0.6rem; color: #bbb; margin-top: 1px; text-align: center; }
       .step-indicator.active .step-desc { color: #888; }
       .step-indicator.completed .step-desc { color: #999; }
-      .step-line { flex: 1; height: 2px; background: #e8eaec; position: relative; top: -8px; z-index: 1; }
-      .step-line.completed { background: var(--accent-green); }
       .design-layout { display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: start; }
       .design-form-card { background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 6px 25px rgba(0,0,0,0.05); position: relative; }
       .design-form-card h2 { font-size: 1.4rem; margin-bottom: 5px; color: var(--dark-text); }
@@ -65,7 +66,18 @@
       .summary-table td:first-child { font-weight: 600; color: #888; width: 40%; }
       .summary-table td:last-child { font-weight: 600; color: var(--dark-text); }
       @media (max-width: 900px) { .design-layout { grid-template-columns: 1fr; } .executive-sidebar { position: static; } }
-      @media (max-width: 768px) { .design-form-card { padding: 20px 16px; } .design-form-row { grid-template-columns: 1fr; } .option-cards { grid-template-columns: 1fr 1fr; } .step-label { font-size: 0.6rem; } .step-desc { display: none; } .step-circle { width: 32px; height: 32px; font-size: 0.85rem; } .form-nav { flex-direction: column; gap: 12px; } .form-nav .btn-back, .form-nav .btn-next { width: 100%; justify-content: center; } }
+      @media (max-width: 768px) { 
+        .design-form-card { padding: 20px 16px; } 
+        .design-form-row { grid-template-columns: 1fr; } 
+        .option-cards { grid-template-columns: 1fr 1fr; } 
+        .step-label { font-size: 0.6rem; } 
+        .step-desc { display: none; } 
+        .step-circle { width: 32px; height: 32px; font-size: 0.85rem; } 
+        .progress-track { top: 16px; left: 25px; right: 25px; }
+        .step-indicator { width: 70px; }
+        .form-nav { flex-direction: column; gap: 12px; } 
+        .form-nav .btn-back, .form-nav .btn-next { width: 100%; justify-content: center; } 
+      }
     </style>
   </head>
   <body>
@@ -100,29 +112,31 @@
       <!-- Sticky Steps Progress Bar -->
       <div class="steps-progress-wrap">
         <div class="container">
-          <div class="steps-progress">
-            <div class="step-indicator active" data-step="1">
-              <div class="step-circle">1</div>
-              <span class="step-label">Choose Type</span>
-              <span class="step-desc">Select your box style</span>
+          <div class="steps-progress-container">
+            <div class="progress-track">
+              <div class="progress-bar-fill" id="progressFill"></div>
             </div>
-            <div class="step-line" id="line-1"></div>
-            <div class="step-indicator" data-step="2">
-              <div class="step-circle">2</div>
-              <span class="step-label">Dimensions</span>
-              <span class="step-desc">Size &amp; material</span>
-            </div>
-            <div class="step-line" id="line-2"></div>
-            <div class="step-indicator" data-step="3">
-              <div class="step-circle">3</div>
-              <span class="step-label">Customise</span>
-              <span class="step-desc">Printing &amp; finish</span>
-            </div>
-            <div class="step-line" id="line-3"></div>
-            <div class="step-indicator" data-step="4">
-              <div class="step-circle">4</div>
-              <span class="step-label">Get Quote</span>
-              <span class="step-desc">Submit &amp; receive quote</span>
+            <div class="steps-progress">
+              <div class="step-indicator active" data-step="1">
+                <div class="step-circle">1</div>
+                <span class="step-label">Choose Type</span>
+                <span class="step-desc">Select your box style</span>
+              </div>
+              <div class="step-indicator" data-step="2">
+                <div class="step-circle">2</div>
+                <span class="step-label">Dimensions</span>
+                <span class="step-desc">Size &amp; material</span>
+              </div>
+              <div class="step-indicator" data-step="3">
+                <div class="step-circle">3</div>
+                <span class="step-label">Customise</span>
+                <span class="step-desc">Printing &amp; finish</span>
+              </div>
+              <div class="step-indicator" data-step="4">
+                <div class="step-circle">4</div>
+                <span class="step-label">Get Quote</span>
+                <span class="step-desc">Submit &amp; receive quote</span>
+              </div>
             </div>
           </div>
         </div>
@@ -206,7 +220,12 @@
                     <option value="5-ply">5 Ply</option>
                     <option value="7-ply">7 Ply</option>
                     <option value="9-ply">9 Ply (Heavy Duty)</option>
+                    <option value="not-sure">Not Sure</option>
                   </select>
+                </div>
+                <div class="design-form-group" id="distanceGroup">
+                  <label for="travelDistance">Estimated Shipping / Travel Distance (km) <span id="distanceRequiredStar" style="display: none; color: var(--primary-red); font-weight: bold;">*</span></label>
+                  <input type="number" id="travelDistance" name="travelDistance" placeholder="e.g. 250" min="1" />
                 </div>
                 <div class="design-form-group">
                   <label for="quantity">Estimated Quantity</label>
@@ -272,6 +291,7 @@
                   <tr><td>Box Type</td><td id="sum-boxType">—</td></tr>
                   <tr><td>Dimensions</td><td id="sum-dimensions">—</td></tr>
                   <tr><td>Board Ply</td><td id="sum-ply">—</td></tr>
+                  <tr id="sum-distance-row" style="display: none;"><td>Travel Distance</td><td id="sum-distance">—</td></tr>
                   <tr><td>Quantity</td><td id="sum-quantity">—</td></tr>
                   <tr><td>Printing</td><td id="sum-print">—</td></tr>
                   <tr><td>Finish</td><td id="sum-finish">—</td></tr>
@@ -379,6 +399,23 @@
       let currentStep = 1;
       const formData = {};
 
+      // Toggle distance field visibility based on Board Ply selection
+      document.getElementById('ply').addEventListener('change', function() {
+        toggleDistanceField(this.value);
+      });
+
+      function toggleDistanceField(value) {
+        var starEl = document.getElementById('distanceRequiredStar');
+        if (value === 'not-sure') {
+          if (starEl) starEl.style.display = 'inline';
+        } else {
+          if (starEl) starEl.style.display = 'none';
+        }
+      }
+
+      // Run check on load to handle browser caching/history back
+      toggleDistanceField(document.getElementById('ply').value);
+
       // ===== Validation Toast =====
       function showValidationMsg(msg) {
         let toast = document.getElementById('validationToast');
@@ -403,7 +440,14 @@
           if (!document.getElementById('length').value) missing.push('Length');
           if (!document.getElementById('width').value) missing.push('Width');
           if (!document.getElementById('height').value) missing.push('Height');
-          if (!document.getElementById('ply').value) missing.push('Board Ply');
+          var plyVal = document.getElementById('ply').value;
+          if (!plyVal) {
+            missing.push('Board Ply');
+          } else if (plyVal === 'not-sure') {
+            if (!document.getElementById('travelDistance').value) {
+              missing.push('Travel Distance');
+            }
+          }
           if (!document.getElementById('quantity').value) missing.push('Quantity');
         } else if (step === 3) {
           if (!document.getElementById('printType').value) missing.push('Printing Type');
@@ -426,9 +470,11 @@
           if (s === step) ind.classList.add('active');
           else if (s < step) ind.classList.add('completed');
         });
-        document.querySelectorAll('.step-line').forEach(function(line, i) {
-          line.classList.toggle('completed', i + 1 < step);
-        });
+        var pct = ((step - 1) / 3) * 100;
+        var fillEl = document.getElementById('progressFill');
+        if (fillEl) {
+          fillEl.style.width = pct + '%';
+        }
       }
 
       function showStep(step) {
@@ -503,6 +549,15 @@
           ? length + '" \u00d7 ' + width + '" \u00d7 ' + height + '"'
           : '\u2014';
         document.getElementById('sum-ply').textContent = formatValue(ply);
+
+        var dist = document.getElementById('travelDistance').value;
+        if (ply === 'not-sure' || dist) {
+          document.getElementById('sum-distance-row').style.display = 'table-row';
+          document.getElementById('sum-distance').textContent = dist ? dist + ' km' : '\u2014';
+        } else {
+          document.getElementById('sum-distance-row').style.display = 'none';
+        }
+
         document.getElementById('sum-quantity').textContent = quantity ? Number(quantity).toLocaleString() + ' units' : '\u2014';
         document.getElementById('sum-print').textContent = formatValue(printType);
         document.getElementById('sum-finish').textContent = formatValue(finish);
@@ -527,6 +582,7 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>Submitting...</span>';
 
+        var plyVal = document.getElementById('ply').value;
         var payload = {
           name: name,
           phone: phone,
@@ -534,7 +590,8 @@
           company: document.getElementById('contactCompany').value.trim(),
           boxType: document.getElementById('boxType').value,
           dimensions: document.getElementById('length').value + '" \u00d7 ' + document.getElementById('width').value + '" \u00d7 ' + document.getElementById('height').value + '"',
-          ply: document.getElementById('ply').value,
+          ply: plyVal,
+          travelDistance: plyVal === 'not-sure' ? document.getElementById('travelDistance').value : null,
           quantity: document.getElementById('quantity').value,
           printType: document.getElementById('printType').value,
           finish: document.getElementById('finish').value,
