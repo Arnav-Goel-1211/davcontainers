@@ -1,4 +1,7 @@
 import './style.css'
+import { inject } from '@vercel/analytics';
+
+inject();
 
 document.addEventListener('DOMContentLoaded', () => {
   // Intersection Observer for scroll animations
